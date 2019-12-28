@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <% if user_signed/in? %>
+      <%= link_to"ログアウト", destroy_user_session_path,method: :delate %>
+      <%= link_to"トップ", items_path%>
+      <%= link_to"投稿画面へ", new_item_path %>
+
+    <% else %>
+      <%= link_to"ログイン", new_isr_session_path, class: 'post' %>
+      <%=link_to"新規登録", new＿user＿registration＿path, class: 'post'%>
+    <% end %>
     <%= yield %>
   </body>
 </html>
